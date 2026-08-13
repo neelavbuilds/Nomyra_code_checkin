@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://nomyra-explore.preview.emergentagent.com/sitemap.xml
+Sitemap: https://nomyratravels.com/sitemap.xml
