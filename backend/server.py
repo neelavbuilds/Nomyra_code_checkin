@@ -100,6 +100,7 @@ class Experience(BaseDocument):
     description: str = ""
     image: str = ""
     image_alt: str = ""
+    image_position: str = ""
     highlights: List[str] = []
     cta_label: str = "Explore Experience"
     difficulty: str = ""

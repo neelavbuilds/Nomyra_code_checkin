@@ -20,7 +20,7 @@ export default function Experiences() {
     <>
       <Seo
         title="Meghalaya Adventure & Offbeat Experiences"
-        description="Shnongpdeng camping, the Chaw Pau trek, Mawkyrwat monoliths, Nognah infinity pool, Nongriat root bridge trek and Kaziranga safari — offbeat Northeast India experiences."
+        description="Shnongpdeng camping beside the Umngot river, the Thlu Chjawpaw falls trek from Nongnah, Mawkyrwat monoliths, the Nognah infinity pool, Nongriat root bridge trek and Kaziranga safari — offbeat Northeast India experiences."
         path="/experiences"
         image={experiences[0]?.image}
       />

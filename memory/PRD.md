@@ -25,14 +25,19 @@ Build a premium, modern, visually immersive travel website for **Nomyra Travels*
 4. Mobile-first, premium on every breakpoint, no horizontal scroll
 5. Scalable content model — new packages/destinations/experiences/posts require no design change
 
-## Implemented (13 June 2026)
-- Full site: Home (hero, brand statement, 3 packages, Meghalaya bento grid, dark "Go Beyond the Tourist Trail" experiences, 4 pillars, trip builder, Why Nomyra, gallery preview, testimonials, blog preview, dual enquiry CTA, journey strip), Packages + package detail, Meghalaya / Arunachal / Assam state pages, destination detail, Experiences + detail, Gallery with category filters, About, Contact, Blog + article pages, Privacy, Terms, 404
+## Implemented (13 June 2026)- Full site: Home (hero, brand statement, 3 packages, Meghalaya bento grid, dark "Go Beyond the Tourist Trail" experiences, 4 pillars, trip builder, Why Nomyra, gallery preview, testimonials, blog preview, dual enquiry CTA, journey strip), Packages + package detail, Meghalaya / Arunachal / Assam state pages, destination detail, Experiences + detail, Gallery with category filters, About, Contact, Blog + article pages, Privacy, Terms, 404
 - 13 destinations, 6 experiences, 18 gallery photos, 12 full-length SEO blog articles
 - Custom Trip Builder that pre-populates the enquiry dialog
 - Enquiry form with validation → DB + wa.me hand-off + success state
 - Floating Call/WhatsApp widget, sticky shrinking nav with mobile menu
 - Admin CMS at `/admin` — enquiry inbox with statuses, CRUD for all 6 content collections
 - Verified by testing agent: backend 23/23 pytest cases, all frontend flows passing
+
+## Updated (14 June 2026)
+- Swapped in three client-supplied photographs: Mawkyrwat monoliths at sunset, glowing tent under the stars beside the Umngot at Shnongpdeng, and the Nognah natural infinity pool (also used in the gallery and related blog covers)
+- Renamed "Chaw Pau Trek" → **Thlu Chjawpaw Falls Trek** (Nongnah village start, ~10 hour return, challenging, guide-only) with a new big-waterfall image; updated every blog mention. Migration script: `/app/backend/migrate_content.py` (idempotent upsert by slug)
+- Added `image_position` to the Experience model so portrait photos frame correctly in landscape cards
+- SEO push: keyword-rich home title/description, `FAQPage` schema + a visible 5-question FAQ section, expanded `TravelAgency` schema (contactPoint, knowsAbout, priceRange), "Popular searches" internal-link block, and a static `/sitemap.xml` at the site root (in addition to `/api/sitemap.xml`)
 
 ## Backlog
 **P0** — none outstanding

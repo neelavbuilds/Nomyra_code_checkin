@@ -44,8 +44,7 @@ export default function Seo({ title, description, image, path = "", schema, noin
       script.id = id;
       script.text = JSON.stringify(schema);
       document.head.appendChild(script);
-    }
-  }, [fullTitle, desc, url, img, schema, noindex]);
+    }  }, [fullTitle, desc, url, img, schema, noindex]);
 
   return null;
 }

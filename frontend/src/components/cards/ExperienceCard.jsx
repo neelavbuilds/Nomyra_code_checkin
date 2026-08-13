@@ -16,7 +16,7 @@ export const ExperienceCard = ({ experience, reverse = false }) => {
         className="relative block overflow-hidden lg:col-span-7 [direction:ltr]"
       >
         <div className="aspect-[16/11] w-full overflow-hidden">
-          <Img src={experience.image} alt={experience.image_alt || experience.title} zoom />
+          <Img src={experience.image} alt={experience.image_alt || experience.title} zoom position={experience.image_position} />
         </div>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent" />
       </Link>

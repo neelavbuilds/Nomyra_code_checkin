@@ -28,6 +28,42 @@ const PILLARS = [
   { key: "PERSONAL", text: "Your journey should fit you — not a fixed itinerary.", image: "https://images.unsplash.com/photo-1633323773493-71920ed75215?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200", alt: "Village on a green hillside in Northeast India" },
 ];
 
+const FAQS = [
+  {
+    q: "What does a Northeast India tour package with Nomyra Travels include?",
+    a: "Every Nomyra Travels package includes route planning, a local driver and vehicle, stays matched to your comfort level, local guides for treks and experiences, and support on WhatsApp or phone through the trip. Flights, permits and optional activities are quoted separately so you always know what you are paying for.",
+  },
+  {
+    q: "How many days do I need for a Meghalaya and Assam tour?",
+    a: "Six to eight days works well for Meghalaya with a couple of days in Assam. Nine to twelve days is better if you want Kaziranga, Shnongpdeng camping and the offbeat South West Khasi Hills without long driving days.",
+  },
+  {
+    q: "What is the best time to visit Meghalaya and Arunachal Pradesh?",
+    a: "October to April is the best overall window. December to March gives the clearest water at Dawki and Shnongpdeng, June to September brings Meghalaya's biggest waterfalls, and the Arunachal mountain roads to Tawang and Sela Pass are best avoided during peak monsoon.",
+  },
+  {
+    q: "Do I need a permit for Arunachal Pradesh?",
+    a: "Yes. Indian travellers need an Inner Line Permit and foreign nationals need a Protected Area Permit for Arunachal Pradesh. Nomyra Travels arranges the paperwork for your journey. Meghalaya and Assam need no permits.",
+  },
+  {
+    q: "Can I get a customized Northeast India itinerary instead of a fixed package?",
+    a: "Yes — most of our trips are custom. Tell us your dates, group size, budget and the experiences you want (camping, trekking, waterfalls, wildlife, culture, photography) and we build the route around you.",
+  },
+];
+
+const KEYWORD_LINKS = [
+  { label: "Meghalaya tour packages", to: "/meghalaya" },
+  { label: "Meghalaya + Assam tour package", to: "/packages/meghalaya-assam" },
+  { label: "Assam + Arunachal tour package", to: "/packages/assam-arunachal" },
+  { label: "Customized Northeast India tour", to: "/packages/custom-northeast-india" },
+  { label: "Shnongpdeng camping", to: "/experiences/camping-shnongpdeng" },
+  { label: "Meghalaya trekking packages", to: "/experiences" },
+  { label: "Dawki & Umngot river tour", to: "/destinations/dawki-umngot-river" },
+  { label: "Cherrapunji (Sohra) tour", to: "/destinations/sohra-cherrapunji" },
+  { label: "Offbeat South West Khasi Hills", to: "/blog/south-west-khasi-hills-travel-guide" },
+  { label: "Arunachal Pradesh tour package", to: "/arunachal" },
+];
+
 const Hero = () => {
   const { openEnquiry } = useEnquiry();
   return (
@@ -81,24 +117,56 @@ export default function Home() {
   const { data: posts = [] } = useBlog();
   const { data: whyUs = [] } = useWhyUs();
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    name: SITE.name,
-    description: SITE.statement,
-    slogan: SITE.tagline,
-    telephone: SITE.phone,
-    email: SITE.email,
-    url: window.location.origin,
-    areaServed: ["Meghalaya", "Assam", "Arunachal Pradesh", "Northeast India"],
-    address: { "@type": "PostalAddress", addressRegion: "Northeast India", addressCountry: "IN" },
-  };
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      name: SITE.name,
+      description: SITE.statement,
+      slogan: SITE.tagline,
+      telephone: SITE.phone,
+      email: SITE.email,
+      url: window.location.origin,
+      image: HERO_IMAGE,
+      priceRange: "On enquiry",
+      areaServed: ["Meghalaya", "Assam", "Arunachal Pradesh", "Northeast India"],
+      knowsAbout: [
+        "Northeast India tour packages",
+        "Meghalaya tour packages",
+        "Meghalaya Assam tour package",
+        "Assam Arunachal tour package",
+        "Meghalaya camping packages",
+        "Shnongpdeng camping",
+        "Dawki tour",
+        "Cherrapunji tour",
+        "Arunachal Pradesh tour package",
+        "Northeast India customized tour",
+      ],
+      address: { "@type": "PostalAddress", addressRegion: "Northeast India", addressCountry: "IN" },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: SITE.phone,
+        contactType: "reservations",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi", "Assamese", "Khasi"],
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
 
   return (
     <>
       <Seo
-        title="Northeast India Tour Packages"
-        description="Nomyra Travels curates Meghalaya, Assam and Arunachal Pradesh tour packages — camping, treks, waterfalls, wildlife and offbeat Northeast India journeys built around you."
+        title="Northeast India Tour Packages — Meghalaya, Assam & Arunachal"
+        description="Nomyra Travels plans Northeast India tour packages — Meghalaya and Assam, Assam and Arunachal Pradesh, or a fully customized trip. Camping, treks, waterfalls, wildlife and offbeat journeys with local guides. Call +91 70024 92612."
         image={HERO_IMAGE}
         path="/"
         schema={schema}
@@ -328,6 +396,50 @@ export default function Home() {
               <MessageCircle className="h-4 w-4" strokeWidth={1.6} /> Plan My Trip on WhatsApp
             </CTAButton>
           </Reveal>
+        </div>
+      </section>
+
+      {/* SEO: FAQ + planning content */}
+      <section className="bg-night-2 py-24 md:py-32" data-testid="faq-section">
+        <div className="shell grid gap-14 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <Overline className="mb-5">Planning questions</Overline>
+            <h2 className="text-4xl sm:text-5xl leading-[1.05]">
+              Planning a Northeast India trip?
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-ink-soft leading-relaxed">
+              The questions travellers ask us most before booking a Meghalaya, Assam or Arunachal
+              Pradesh journey.
+            </p>
+            <CTAButton onClick={() => openEnquiry({})} variant="outline" className="mt-8" data-testid="faq-plan-btn">
+              Ask us anything
+            </CTAButton>
+          </Reveal>
+
+          <div className="lg:col-span-6 lg:col-start-7">
+            {FAQS.map((f, i) => (
+              <Reveal key={f.q} delay={i * 0.05} className="border-t border-white/10 py-7">
+                <h3 className="text-2xl leading-snug text-ink">{f.q}</h3>
+                <p className="mt-3 text-sm md:text-base leading-relaxed text-ink-soft">{f.a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <div className="shell mt-16">
+          <Overline className="mb-5">Popular searches</Overline>
+          <div className="flex flex-wrap gap-2.5">
+            {KEYWORD_LINKS.map((k) => (
+              <Link
+                key={k.label}
+                to={k.to}
+                data-testid={`keyword-link-${k.to.replace(/\//g, "-")}`}
+                className="rounded-sm border border-white/12 px-4 py-2.5 text-xs uppercase tracking-[0.12em] text-ink-soft transition-colors hover:border-beige hover:text-beige"
+              >
+                {k.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -33,7 +33,10 @@ IMG = {
     "rhino_egret": "https://images.pexels.com/photos/37654954/pexels-photo-37654954.jpeg?auto=compress&cs=tinysrgb&w=1600",
     "pool_valley": "https://images.pexels.com/photos/18310406/pexels-photo-18310406.jpeg?auto=compress&cs=tinysrgb&w=1600",
     "pool_mist": "https://images.unsplash.com/photo-1761442663511-2558e561f15e?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
-    "monoliths": "https://static.prod-images.emergentagent.com/jobs/98a77621-5d9d-419a-b5a6-462a35c63ca7/images/a6306b6aceb20da283c63a16cd79b9893e2c83dc771a87d541d288382707407e.jpeg",
+    "monoliths": "https://customer-assets-agu9un31.emergentagent.net/job_nomyra-explore/artifacts/unjydob1_4d9046bb-33a8-4d3a-8b3a-69f304faca23.JPG",
+    "camp_stars": "https://customer-assets-agu9un31.emergentagent.net/job_nomyra-explore/artifacts/6el6dlu7_E7D2643E-9DD3-4CDE-A9F3-7CFB6B1FAFBC.PNG",
+    "infinity_pool": "https://customer-assets-agu9un31.emergentagent.net/job_nomyra-explore/artifacts/3anjkfio_IMG_1336.webp",
+    "thlu_chjawpaw": "https://static.prod-images.emergentagent.com/jobs/98a77621-5d9d-419a-b5a6-462a35c63ca7/images/813b755e9b79748eea83cb37d9aeb0a4e1ca63155d95b61b402721c492ec5c36.jpeg",
     "shillong_street": "https://static.prod-images.emergentagent.com/jobs/98a77621-5d9d-419a-b5a6-462a35c63ca7/images/4c6e85e14619e7ec7be3afd2e2e4d0136af1e8df8fcce52adbb3e623080edd84.jpeg",
     "tea_garden": "https://static.prod-images.emergentagent.com/jobs/98a77621-5d9d-419a-b5a6-462a35c63ca7/images/c6ca76754cc8991d36dacfb805fdaa24b8d95e6cec41c4ecbcbff74af5f06e21.jpeg",
     "root_bridge": "https://static.prod-images.emergentagent.com/jobs/98a77621-5d9d-419a-b5a6-462a35c63ca7/images/15f2172c99a08103beb529a5b58009559f020ae9e42a73627a3687d7a6a73ea9.jpeg",
@@ -226,24 +229,24 @@ EXPERIENCES = [
         "slug": "camping-shnongpdeng", "order": 1, "category": "Camping", "location": "Shnongpdeng, West Jaintia Hills",
         "title": "Camping in Shnongpdeng",
         "summary": "Wake up beside one of Meghalaya's most beautiful rivers.",
-        "description": "Riverside tents on the Umngot at Shnongpdeng, a short drive upstream from Dawki. Days are for kayaking, cliff jumping, snorkelling and zip lines; evenings are for a fire, local food and a river that goes completely quiet after dark.",
-        "image": IMG["camp_river"],
-        "image_alt": "Tents pitched beside a clear river surrounded by forest at Shnongpdeng Meghalaya",
-        "highlights": ["Riverside tents", "Kayaking and snorkelling", "Cliff jumping and zip line", "Bonfire evenings", "Sunrise over the Umngot"],
+        "description": "Riverside tents on the Umngot at Shnongpdeng, a short drive upstream from Dawki. Days are for kayaking, cliff jumping, snorkelling and zip lines; nights are for a fire beside the Umngot and a sky so full of stars you will not want to go inside the tent.",
+        "image": IMG["camp_stars"],
+        "image_alt": "Glowing tent under a sky full of stars while camping beside the Umngot river at Shnongpdeng Meghalaya",
+        "highlights": ["Tents beside the Umngot river", "Camping under the stars", "Kayaking and snorkelling", "Cliff jumping and zip line", "Bonfire evenings", "Sunrise over the river"],
         "cta_label": "Explore Camping",
         "difficulty": "Easy",
         "best_time": "October to April",
     },
     {
-        "slug": "chaw-pau-trek", "order": 2, "category": "Trekking", "location": "South West Khasi Hills",
-        "title": "Chaw Pau Trek",
-        "summary": "Walk deeper into Meghalaya through remote landscapes and village trails.",
-        "description": "A trail through the South West Khasi Hills that very few travellers reach — forest paths, stream crossings, open grassland ridges and villages where the trek is simply the way people get around. Best walked with a local guide from the area.",
-        "image": IMG["trek_hills"],
-        "image_alt": "Trekkers walking a green ridge trail through the South West Khasi Hills of Meghalaya",
-        "highlights": ["Remote forest trails", "Village stops", "Stream crossings", "Grassland ridges", "Local guides"],
+        "slug": "thlu-chjawpaw-falls-trek", "order": 2, "category": "Trekking", "location": "Nongnah, South West Khasi Hills",
+        "title": "Thlu Chjawpaw Falls Trek",
+        "summary": "Walk deeper into Meghalaya to one of its tallest hidden waterfalls.",
+        "description": "A full-day trek from Nongnah village to Thlu Chjawpaw, an enormous waterfall dropping off the cliffs of the South West Khasi Hills into a forested gorge. The route runs roughly 10 hours return through forest, grassland ridges and exposed cliff sections, including a very steep final descent — it is a serious trek and must be done with a local guide from Nongnah.",
+        "image": IMG["thlu_chjawpaw"],
+        "image_alt": "Enormous Thlu Chjawpaw waterfall dropping off a forested cliff in the South West Khasi Hills Meghalaya",
+        "highlights": ["Thlu Chjawpaw waterfall", "Nongnah village start", "Full-day 10 hour return trek", "Cliff and gorge viewpoints", "Local Khasi guides"],
         "cta_label": "Explore Trek",
-        "difficulty": "Moderate",
+        "difficulty": "Challenging",
         "best_time": "October to April",
     },
     {
@@ -252,7 +255,8 @@ EXPERIENCES = [
         "summary": "Discover the stories written into Meghalaya's ancient stones.",
         "description": "Standing stones raised generations ago sit in clearings and village edges around Mawkyrwat. Walking between them with someone who knows the clan stories turns a field of rocks into a living record of Khasi history.",
         "image": IMG["monoliths"],
-        "image_alt": "Ancient Khasi standing stone monoliths in a green clearing near Mawkyrwat Meghalaya",
+        "image_alt": "Khasi standing stone monoliths silhouetted against a sunset sky near Mawkyrwat, South West Khasi Hills Meghalaya",
+        "image_position": "center 85%",
         "highlights": ["Khasi monoliths", "Village surroundings", "Cultural landscape", "Hills and viewpoints"],
         "cta_label": "Discover Mawkyrwat",
         "difficulty": "Easy",
@@ -262,9 +266,10 @@ EXPERIENCES = [
         "slug": "infinity-pool-nognah", "order": 4, "category": "Offbeat", "location": "Nognah Village, South West Khasi Hills",
         "title": "Infinity Pool — Nognah Village",
         "summary": "A hidden escape overlooking the green hills of South West Khasi Hills.",
-        "description": "A natural infinity edge above deep green valleys near Nognah village — the kind of place you sit at for an hour without saying much. Pair it with a night in the village for the full effect.",
-        "image": IMG["pool_valley"],
-        "image_alt": "Infinity edge pool looking out over green hills and valleys in South West Khasi Hills Meghalaya",
+        "description": "A natural infinity edge above deep green valleys near Nognah village — the kind of place you sit in for an hour without saying much. Pair it with a night in the village for the full effect.",
+        "image": IMG["infinity_pool"],
+        "image_alt": "Traveller floating in the natural infinity pool above green valleys at Nognah village, South West Khasi Hills Meghalaya",
+        "image_position": "center 70%",
         "highlights": ["Infinity pool viewpoint", "Green valleys", "Quiet village stay", "Sunset views"],
         "cta_label": "Explore Experience",
         "difficulty": "Easy",
@@ -314,7 +319,7 @@ GALLERY = [
     {"order": 2, "category": "Waterfalls", "image": IMG["waterfall_tall"], "caption": "A long drop in the hills", "alt": "Tall thin waterfall falling through dense green forest in Meghalaya"},
     {"order": 3, "category": "Waterfalls", "image": IMG["waterfall_gorge"], "caption": "Gorge falls", "alt": "Wide waterfall in a mossy gorge in Northeast India"},
     {"order": 4, "category": "Meghalaya", "image": IMG["river_aerial"], "caption": "Umngot river, Dawki", "alt": "Aerial view of boats on the clear Umngot river at Dawki Meghalaya"},
-    {"order": 5, "category": "Camping", "image": IMG["camp_river"], "caption": "Riverside camp, Shnongpdeng", "alt": "Riverside camping tents at Shnongpdeng on the Umngot river"},
+    {"order": 5, "category": "Camping", "image": IMG["camp_stars"], "caption": "Starry night, Shnongpdeng", "alt": "Tent glowing under a starry sky beside the Umngot river at Shnongpdeng Meghalaya"},
     {"order": 6, "category": "Camping", "image": IMG["camp_dome"], "caption": "High camp", "alt": "Dome tent pitched on a mountain slope in Northeast India"},
     {"order": 7, "category": "Camping", "image": IMG["camp_night"], "caption": "Night under the hills", "alt": "Lit tent at night below a dark hillside"},
     {"order": 8, "category": "Mountains", "image": IMG["snow_peak"], "caption": "Eastern Himalaya", "alt": "Snow capped Eastern Himalayan peak in Arunachal Pradesh"},
@@ -364,7 +369,7 @@ The Jaintia Hills are underrated. Krang Shuri falls into a blue pool you can swi
 Among the wettest inhabited places on earth. Come for the extreme green, Mawjymbuin cave and the sense of living inside a cloud.
 
 ## South West Khasi Hills
-Mawkyrwat, Nognah, the Chaw Pau trail — this is where Meghalaya still feels undiscovered. Roads are rougher and stays are simpler, and that is exactly the point.
+Mawkyrwat, Nognah, the Thlu Chjawpaw falls trail — this is where Meghalaya still feels undiscovered. Roads are rougher and stays are simpler, and that is exactly the point.
 
 ## A sensible route
 Shillong → Sohra (2 nights) → Nongriat (1 night) → Shnongpdeng (1-2 nights) → Jowai → Shillong. Add two days for the South West Khasi Hills if you want the offbeat version.
@@ -406,8 +411,8 @@ The tallest cluster of monoliths in Meghalaya, in the Jaintia Hills near Jowai.
 ## 7. Wei Sawdong Falls
 A three-tiered fall reached by a steep bamboo ladder descent near Sohra. Slippery in rain — sensible shoes only.
 
-## 8. Chaw Pau trail
-A genuinely remote trek through the South West Khasi Hills. Villages, streams, grassland ridges, no crowds.
+## 8. Thlu Chjawpaw Falls
+A huge, barely-visited waterfall reached on a hard full-day trek from Nongnah village in the South West Khasi Hills. Local guide essential, no crowds.
 
 ## 9. Kongthong
 The village where families are called by whistled melodies rather than names. Visit respectfully; this is a home, not an attraction.
@@ -453,7 +458,7 @@ Tell us your travel dates and we will tell you honestly what will and will not b
         "slug": "meghalaya-camping-guide",
         "title": "Meghalaya Camping Guide: Shnongpdeng and Beyond",
         "excerpt": "Where to camp in Meghalaya, what a riverside night actually involves, what to pack and how to choose a camp that is safe.",
-        "cover_image": IMG["camp_river"],
+        "cover_image": IMG["camp_stars"],
         "cover_alt": "Tents beside a clear river at Shnongpdeng in Meghalaya, riverside camping",
         "category": "Camping",
         "read_time": "7 min read",
@@ -715,18 +720,18 @@ Tell us your dates, your pace and what you want to feel, and we will design the 
         "slug": "best-offbeat-places-in-meghalaya",
         "title": "Best Offbeat Places in Meghalaya",
         "excerpt": "If you have already done Sohra and Dawki, this is the Meghalaya to come back for.",
-        "cover_image": IMG["pool_valley"],
-        "cover_alt": "Infinity pool overlooking green valleys in offbeat South West Khasi Hills Meghalaya",
+        "cover_image": IMG["infinity_pool"],
+        "cover_alt": "Natural infinity pool overlooking green valleys at Nognah in the South West Khasi Hills Meghalaya",
         "category": "Offbeat",
         "read_time": "6 min read",
         "tags": ["Offbeat", "Meghalaya", "Villages"],
         "meta_title": "Best Offbeat Places in Meghalaya to Visit | Nomyra Travels",
-        "meta_description": "Offbeat Meghalaya: Mawkyrwat, Nognah, Chaw Pau trek, Kongthong, Wei Sawdong, Nartiang and other quiet places worth the extra drive.",
+        "meta_description": "Offbeat Meghalaya: Mawkyrwat, Nognah, Thlu Chjawpaw falls trek, Kongthong, Wei Sawdong, Nartiang and other quiet places worth the extra drive.",
         "published": True,
         "body": """Offbeat in Meghalaya rarely means far. It usually means one worse road and one fewer signboard.
 
 ## South West Khasi Hills
-The heart of offbeat Meghalaya. Mawkyrwat as a base, monoliths in the fields, the Chaw Pau trail, and Nognah's valley-edge infinity pool. Stays are simple homestays; the welcome is not.
+The heart of offbeat Meghalaya. Mawkyrwat as a base, monoliths in the fields, the Thlu Chjawpaw falls trek, and Nognah's valley-edge infinity pool. Stays are simple homestays; the welcome is not.
 
 ## Kongthong
 The whistling village, where each person has a melody instead of a called name. Visit with a local guide and treat it as someone's home.
@@ -751,14 +756,14 @@ We build offbeat routes that keep drive times sane and put the money into villag
     {
         "slug": "south-west-khasi-hills-travel-guide",
         "title": "South West Khasi Hills Travel Guide",
-        "excerpt": "Mawkyrwat, Nognah, monoliths and the Chaw Pau trail — a full guide to the least-travelled corner of Meghalaya.",
+        "excerpt": "Mawkyrwat, Nognah, monoliths and the Thlu Chjawpaw falls trek — a full guide to the least-travelled corner of Meghalaya.",
         "cover_image": IMG["trek_hills"],
         "cover_alt": "Trekkers on a green ridge in the South West Khasi Hills of Meghalaya",
         "category": "Offbeat",
         "read_time": "7 min read",
         "tags": ["South West Khasi Hills", "Trekking", "Offbeat"],
         "meta_title": "South West Khasi Hills Travel Guide (Mawkyrwat, Nognah) | Nomyra Travels",
-        "meta_description": "South West Khasi Hills travel guide: how to reach Mawkyrwat, Nognah infinity pool, monoliths, Chaw Pau trek, stays, season and what to expect.",
+        "meta_description": "South West Khasi Hills travel guide: how to reach Mawkyrwat, Nognah infinity pool, monoliths, Thlu Chjawpaw falls trek, stays, season and what to expect.",
         "published": True,
         "body": """The South West Khasi Hills district is where Meghalaya stops performing for visitors. Fewer homestays, fewer cafes, far fewer cars — and landscape that holds its own against anything in Sohra.
 
@@ -768,7 +773,7 @@ Mawkyrwat, the district headquarters, is roughly 4 hours from Shillong via Mawky
 ## What to do
 - **Mawkyrwat monoliths** — standing stones in village clearings, best understood with a local guide.
 - **Nognah infinity pool** — a natural edge above deep green valleys, ideal at sunset.
-- **Chaw Pau trek** — forest paths, streams and grassland ridges, moderate difficulty, guided.
+- **Thlu Chjawpaw falls trek** — a hard 10-hour return trek from Nongnah to a huge cliff waterfall, guided only.
 - **Village evenings** — the real reason to come. Food, stories, and no phone signal.
 
 ## Where to stay
