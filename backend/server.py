@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+load_dotenv(ROOT_DIR / '.env', override=False)
 
 import os
 import logging
@@ -332,7 +332,7 @@ async def root():
 
 # ---------------------------------------------------------------- content (public)
 async def _list(collection: str, model, query: Optional[dict] = None, sort_field: str = "order"):
-    docs = await db[collection].find(query or {}).sort(sort_field, 1).to_list(500)
+    docs = await db[collection].find(query or {}).sort(sort_field, 1).limit(200).to_list(200)
     return [model.from_mongo(d) for d in docs]
 
 
@@ -388,9 +388,15 @@ async def list_gallery(category: Optional[str] = None):
     return await _list("gallery", GalleryItem, query)
 
 
+BLOG_LIST_FIELDS = {
+    "slug": 1, "title": 1, "excerpt": 1, "cover_image": 1, "cover_alt": 1,
+    "category": 1, "read_time": 1, "tags": 1, "published": 1,
+}
+
+
 @api.get("/blog", response_model=List[BlogPost])
 async def list_blog():
-    docs = await db.blog.find({"published": True}).to_list(200)
+    docs = await db.blog.find({"published": True}, BLOG_LIST_FIELDS).limit(200).to_list(200)
     return [BlogPost.from_mongo(d) for d in docs]
 
 
@@ -494,8 +500,8 @@ async def create_enquiry(body: EnquiryCreate):
 
 
 @api.get("/admin/enquiries", response_model=List[Enquiry])
-async def admin_enquiries(_: dict = Depends(require_admin)):
-    docs = await db.enquiries.find({}).sort("created_at", -1).to_list(1000)
+async def admin_enquiries(skip: int = 0, limit: int = 50, _: dict = Depends(require_admin)):
+    docs = await db.enquiries.find({}).sort("created_at", -1).skip(skip).limit(min(limit, 200)).to_list(200)
     return [Enquiry.from_mongo(d) for d in docs]
 
 
@@ -533,9 +539,9 @@ def _model_for(collection: str):
 
 
 @api.get("/admin/{collection}")
-async def admin_list(collection: str, _: dict = Depends(require_admin)):
+async def admin_list(collection: str, skip: int = 0, limit: int = 100, _: dict = Depends(require_admin)):
     model = _model_for(collection)
-    docs = await db[collection].find({}).to_list(500)
+    docs = await db[collection].find({}).skip(skip).limit(min(limit, 200)).to_list(200)
     return [model.from_mongo(d).model_dump() for d in docs]
 
 
@@ -585,7 +591,7 @@ async def sitemap():
             "/about", "/contact", "/blog", "/privacy-policy", "/terms"]
     for coll, prefix in (("packages", "/packages/"), ("destinations", "/destinations/"),
                          ("experiences", "/experiences/"), ("blog", "/blog/")):
-        for doc in await db[coll].find({}, {"slug": 1}).to_list(500):
+        for doc in await db[coll].find({}, {"slug": 1}).limit(500).to_list(500):
             if doc.get("slug"):
                 urls.append(f"{prefix}{doc['slug']}")
     today = datetime.now(timezone.utc).date().isoformat()
