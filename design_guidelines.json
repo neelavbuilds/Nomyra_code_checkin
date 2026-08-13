@@ -1,0 +1,143 @@
+{
+  "theme": "dark",
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond",
+      "body": "Manrope",
+      "import_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap"
+    },
+    "guidelines": [
+      "Use Cormorant Garamond for all H1, H2, H3 headings to give a luxury, editorial travel magazine feel.",
+      "Use Manrope for body text, inputs, labels, and small UI elements for maximum legibility.",
+      "Headings should have tight tracking (tracking-tight) and slightly reduced line-height (leading-none for H1, leading-tight for others).",
+      "Overlines and small caps (like 'DESTINATIONS', 'EXPERIENCES') should use Manrope, uppercase, with wide tracking (tracking-[0.2em]).",
+      "Ensure heading sizes fluidly scale but do not exceed text-6xl on desktop (e.g., text-4xl md:text-5xl lg:text-6xl)."
+    ]
+  },
+  "colors": {
+    "background": {
+      "primary": "#121513",
+      "secondary": "#1A1E1C",
+      "tertiary": "#222724"
+    },
+    "text": {
+      "primary": "#F5F7F5",
+      "secondary": "#A3ACA6",
+      "tertiary": "#7A827C"
+    },
+    "brand": {
+      "forest": "#2D4233",
+      "charcoal": "#1A1F1C",
+      "stone": "#8C9289",
+      "beige": "#D3C3B1",
+      "terracotta": "#C17767"
+    },
+    "guidelines": [
+      "The site operates strictly in a dark, cinematic theme.",
+      "Backgrounds should utilize deep charcoal and very dark forest greens (almost black) to create depth.",
+      "Use 'beige' and 'terracotta' sparingly as warm accents for CTAs, active states, or highlight typography.",
+      "Text must meet APCA contrast ratios. Avoid pure white; use Mist White (#F5F7F5) for primary text.",
+      "Never use pure black or pure white."
+    ]
+  },
+  "visual_enhancers": {
+    "textures": "Apply a subtle noise/grain overlay (e.g., a repeating SVG background with opacity 0.03) to dark sections to remove digital flatness and enhance the cinematic editorial vibe.",
+    "glassmorphism": "Use backdrop-blur-xl with a highly transparent dark fill (bg-black/40) and a subtle 1px border (border-white/10) for the sticky navigation and floating elements.",
+    "shadows": "Use soft, ambient shadows for floating widgets. Avoid harsh shadows; rely on 1px borders (border-white/10) to define edges.",
+    "image_overlays": "Hero images must have a gradient overlay (bg-gradient-to-t from-[#121513] via-black/40 to-black/20) to ensure text contrast while keeping the image visible."
+  },
+  "components": {
+    "libraries": [
+      "lucide-react (for icons)",
+      "framer-motion (for scroll reveals, parallax, and micro-interactions)",
+      "lenis (for smooth scrolling momentum)",
+      "shadcn/ui (for forms, selects, dialogs)"
+    ],
+    "custom_patterns": {
+      "buttons": "Minimalist luxury. Primary: Warm accent bg with dark text, or glassmorphic outline with hover glow. No generic pill shapes; use rounded-none or rounded-sm for an editorial look.",
+      "cards": "Cardless or flat geometric approach. Images should do the heavy lifting. Avoid generic white/gray boxes. If background is needed, use #1A1E1C with a 1px border of white/5.",
+      "trip_builder": "Interactive segmented control or chips. Styled elegantly with a thin border and active states glowing slightly or turning terracotta/beige."
+    }
+  },
+  "layouts_and_grids": {
+    "hero": "Full height (min-h-screen). Background cinematic image. Text should be bottom-left aligned or centered with generous padding (pb-24 or pb-32) so the image breathes.",
+    "spacing": "Generous spacing. Use py-24 or py-32 for section padding. Ensure components have breathing room. Avoid cramped text.",
+    "destinations_grid": "Bento 'Tetris' Grid (Mode A). 6 destinations should not be equal squares. Create an asymmetrical layout (e.g., one large column spanning 2 rows, some wide, some tall) using grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gaps-6.",
+    "packages": "3-column grid (grid-cols-1 md:grid-cols-3) with gap-8. Images should have a vertical aspect ratio (e.g., aspect-[3/4]) for a portrait/editorial look.",
+    "general": "Do not center-align the app container. All text and standard content should be left-aligned unless a specific section (like a quote or CTA block) demands centering."
+  },
+  "motion": {
+    "scroll": "Smooth scrolling via Lenis is mandatory to give a premium weight to the site.",
+    "reveals": "Use Framer Motion for subtle fade-up (opacity: 0 to 1, y: 20 to 0) on scroll for text and cards.",
+    "hover": "Images inside cards should slowly scale up (scale 1.05) on hover with a slow ease transition (duration 0.6s). Do not use generic 'transition-all'.",
+    "parallax": "Apply subtle parallax (y movement) to hero background images or section backgrounds."
+  },
+  "accessibility": {
+    "contrast": "Ensure all text over images or dark backgrounds is legible. Use text-shadow or gradients if needed.",
+    "focus": "Focus states must be visible, using a border ring of the terracotta/beige accent.",
+    "aria": "Include aria-labels for all icon-only buttons (like social links, floating WhatsApp, mobile menu).",
+    "data_testid": "All interactive elements, buttons, inputs, form submissions, and cards MUST have a data-testid attribute (e.g., data-testid='hero-cta-button')."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1511884642898-4c92249e20b6",
+        "description": "Aerial misty forest",
+        "category": "hero"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519830103773-4bdc5166a0db",
+        "description": "Waterfall in cliff",
+        "category": "destinations, meghalaya"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1444290679983-dd3aabf671ec",
+        "description": "Waterfall forest",
+        "category": "destinations"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1506452305024-9d3f02d1c9b5",
+        "description": "Pine trees in fog",
+        "category": "destinations, arunachal"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1510312305653-8ed496efae75",
+        "description": "Dome tent on mountain",
+        "category": "experiences, glamping"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1599753642061-84495820669f",
+        "description": "Yellow tent night time",
+        "category": "experiences, adventure"
+      },
+      {
+        "url": "https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg",
+        "description": "Hiker in lush forest",
+        "category": "packages, adventure"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1501554728187-ce583db33af7",
+        "description": "Woman walking down hill",
+        "category": "about, storytelling"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1564460549828-f0219a31bf90",
+        "description": "Waterfalls beside trees",
+        "category": "gallery"
+      }
+    ],
+    "guidelines": "Use these high-quality, cinematic nature images. Do NOT use placeholder text or dummy image services. Keep image overlay opacities reasonable so the photography shines. Apply aspect ratios (e.g., aspect-[3/4], aspect-square) to ensure consistency in grids."
+  },
+  "instructions_to_main_agent": [
+    "Build a robust, multi-page layout (or single page with robust sections) containing: Cinematic Hero, Editorial Statement, Packages, Destinations Grid, Experiences, Trip Builder Form, Why Us, Testimonials, and Footer.",
+    "Implement the 'Custom Trip Builder' as an interactive component (e.g., Select/Chips for Destination, Style, Duration) using Shadcn primitives.",
+    "Ensure a floating contact widget (Call / WhatsApp) is always visible on the bottom right.",
+    "Do NOT use 'Inter' for headings. Strictly use the imported 'Cormorant Garamond'.",
+    "Do NOT center align the entire body or app container.",
+    "Avoid standard Vercel/SaaS aesthetics. This is a LUXURY TRAVEL brand. Think high fashion meets national geographic.",
+    "Apply data-testid to every clickable element.",
+    "Use Lucide React for icons. Do NOT use emojis.",
+    "Ensure all styling is done in pure Tailwind CSS + Shadcn. No external raw CSS files unless necessary for animations/lenis.",
+    "The UI must be heavily responsive (Mobile-first). Keep touch targets large and typography legible on small screens."
+  ]
+}

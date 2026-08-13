@@ -1,0 +1,41 @@
+{
+  "summary": "First test run for Nomyra Travels. Backend: 23/23 pytest cases pass (public content, enquiries, auth, admin CRUD, SEO). Frontend: all headline flows verified — hero + CTAs, sticky nav (7 links + Call + Plan Trip), Trip Builder chips correctly pre-populate the enquiry dialog (destination, style, days, experiences chips, message), enquiry submission returns success state with wa.me link and Call button (whatsapp_notified=false as expected), admin login (bad password shows error, real login redirects to /admin, all 7 tabs render, submitted enquiries visible), /admin without token redirects to /admin/login, mobile viewport shows hamburger + mobile menu + floating call/WhatsApp with no horizontal scroll, gallery/blog filters and 12 blog posts (1 lead + 11 cards) render, sitemap.xml + robots.txt served. NOTE: on first load ALL tel:/mailto:/wa.me links were empty because REACT_APP_BUSINESS_* env vars weren't in the running frontend bundle — fixed by restarting the frontend service (env change requires restart on CRA).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Contact / floating call / WhatsApp links",
+        "issue": "Before frontend restart, telHref rendered as 'tel:' and wa.me links had no phone number because CRA had not picked up REACT_APP_BUSINESS_PHONE/WHATSAPP/EMAIL from frontend/.env. After 'sudo supervisorctl restart frontend' the links populate correctly (tel:+917002492612, wa.me/917002492612, mailto:nomadaccidental@gmail.com). Main agent should ensure the deployed build always includes these env vars.",
+        "affected_selectors": ["a[href^='tel:']", "a[href*='wa.me']", "a[href^='mailto:']"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "None blocking. Optional: consider a runtime settings fetch on the frontend so contact links don't require a rebuild/restart when env vars change (currently they come from build-time REACT_APP_*)."
+  ],
+  "critical_code_review_comments": [
+    "server.py: CORSMiddleware uses allow_credentials=False despite cookies being set on login — cookie-based auth from the frontend will not work cross-origin; the admin frontend already uses Bearer tokens from localStorage so this is fine, but the httpOnly cookies are effectively dead code for the browser flow.",
+    "server.py: seed_admin only updates password if it differs; does not update other admin fields — acceptable for now.",
+    "TripBuilder testids are slugified (builder-destination-meghalaya, builder-style-adventure, builder-duration-6-8-days). The review request used pattern wildcards, but note the exact chip values in the problem statement (Meghalaya, Adventure, 6–8 Days) map to lowercased slug testids.",
+    "EnquiryForm exposes travel style select as data-testid='enquiry-style' (not 'enquiry-travel-style'). Minor inconsistency vs prefill key name."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py (new)"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "Admin: nomadaccidental@gmail.com / Qwerty@1998 (used; verified successful login).",
+  "seed_data_creation": "Only test enquiries were created and deleted during backend tests. Two enquiries created via frontend Playwright are left in the DB (Playwright Test / Test User) — main agent may delete via admin UI.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest suite at /app/backend/tests/backend_test.py covers all critical endpoints incl. auth (1 bad-pw attempt only to avoid lockout), enquiries create+admin list+patch+delete, and gallery CRUD. Frontend env vars require 'supervisorctl restart frontend' after any change to /app/frontend/.env. Trip Builder chip testids are slugified lowercase. Blog page uses 1 'lead' post + N-1 'card' posts, so blog-card count = total-1.",
+  "rca of the issue": "Empty tel:/mailto:/wa.me links RCA: React scripts (CRA/craco) embed REACT_APP_* at compile time. The initial dev server process was started before the current /app/frontend/.env values were in place (or an env-less build was cached). Since the values are protected variables, restarting the frontend supervisor process re-read /app/frontend/.env and re-injected them, immediately populating SITE.phone/whatsapp/email and all telHref/waHref usages. Mitigation: main agent may want to add a small runtime GET /api/settings hydration for these fields so they can be edited from admin without redeploy."
+}
